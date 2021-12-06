@@ -14,8 +14,8 @@ namespace PersonDataManagement
             AddRecords(listPersonInCity);
 
             //RetreivingTopTwoRecords_ForAgeIs_LessThanSixty(listPersonInCity);
-
-            Retrieve_Record_Age_bet_Thirteen_to_Eighteen(listPersonInCity);
+            //Retrieve_Record_Age_bet_Thirteen_to_Eighteen(listPersonInCity);
+            Retrieve_Average_Age(listPersonInCity);
         }
         private static void AddRecords(List<Person> listPersonInCity)
         {
@@ -41,6 +41,11 @@ namespace PersonDataManagement
             {
                 Console.WriteLine("Name : " + person.Name + "\t\tAge : " + person.Age);
             }
+        }
+        public static void Retrieve_Average_Age(List<Person> listPersonInCity)
+        {
+            var avg_age = listPersonInCity.Average(s => s.Age);          
+            Console.WriteLine("Average Age in list : " +avg_age);       
         }
     }
 }
