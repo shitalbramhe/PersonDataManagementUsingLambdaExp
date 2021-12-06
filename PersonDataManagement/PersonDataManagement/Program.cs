@@ -17,7 +17,8 @@ namespace PersonDataManagement
             //Retrieve_Record_Age_bet_Thirteen_to_Eighteen(listPersonInCity);
             //Retrieve_Average_Age(listPersonInCity);
             //Check_spaecific_name_present_absent(listPersonInCity);
-            Skip_record_age_less_than_60(listPersonInCity);
+            //Skip_record_age_less_than_60(listPersonInCity);
+            Remove_Specific_name(listPersonInCity);
         }
         private static void AddRecords(List<Person> listPersonInCity)
         {
@@ -67,6 +68,16 @@ namespace PersonDataManagement
             foreach (Person pers in listPersonInCity.SkipWhile(e => e.Age < 60))
             {
                 Console.WriteLine("Name : " + pers.Name + " \t\tAge: " + pers.Age);
+            }
+        }
+        public static void Remove_Specific_name(List<Person> listPersonInCity)
+        {
+            Console.WriteLine("\nEnter person name you want to remove from record ");
+            string inputname = Console.ReadLine();
+            listPersonInCity.RemoveAll(e => (e.Name == inputname));
+            if (listPersonInCity.TrueForAll(e => e.Name != inputname))
+            {
+                Console.WriteLine(inputname+ " is not found in current list");
             }
         }
     }
