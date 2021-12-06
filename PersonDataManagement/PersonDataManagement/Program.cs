@@ -16,7 +16,8 @@ namespace PersonDataManagement
             //RetreivingTopTwoRecords_ForAgeIs_LessThanSixty(listPersonInCity);
             //Retrieve_Record_Age_bet_Thirteen_to_Eighteen(listPersonInCity);
             //Retrieve_Average_Age(listPersonInCity);
-            Check_spaecific_name_present_absent(listPersonInCity);
+            //Check_spaecific_name_present_absent(listPersonInCity);
+            Skip_record_age_less_than_60(listPersonInCity);
         }
         private static void AddRecords(List<Person> listPersonInCity)
         {
@@ -59,6 +60,13 @@ namespace PersonDataManagement
             else
             {
                 Console.WriteLine(" A person not exists in our list");
+            }
+        }
+        public static void Skip_record_age_less_than_60(List<Person> listPersonInCity)
+        {
+            foreach (Person pers in listPersonInCity.SkipWhile(e => e.Age < 60))
+            {
+                Console.WriteLine("Name : " + pers.Name + " \t\tAge: " + pers.Age);
             }
         }
     }
